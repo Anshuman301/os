@@ -28,6 +28,7 @@ int firstArrProcess(process *p,int n,int ct){
 			pos=i;
 		}
 	}
+	// printf("pos:-%d \n",pos);
 	return pos;
 }
 void solve(process *p,int n){
@@ -47,13 +48,14 @@ void solve(process *p,int n){
 		}
 		else{
             ct+=p[spidx].bt;
+            printf("ct:-%d\n",ct);
 			for(int i=0;i<n;i++){
 			if(i!=spidx && p[i].status==not_exec && p[i].at <= ct)
-			p[i].wt=ct - p[i].at;
+			p[i].wt  = ct - p[i].at;
 			}
 			// p[spidx].ft=ct-p[spidx].at;
 			p[spidx].bt=0;
-			if(p[spidx].bt <= 0){
+			if(p[spidx].bt == 0){
 				p[spidx].ft = ct - p[spidx].at;
 				p[spidx].status=exec;
 			}
