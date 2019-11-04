@@ -47,27 +47,26 @@ void solve(process *p,int n){
 			continue;
 		}
 		else{
-            ct+=p[spidx].bt;
-            printf("ct:-%d\n",ct);
 			for(int i=0;i<n;i++){
 			if(i!=spidx && p[i].status==not_exec && p[i].at <= ct)
-			p[i].wt  = ct - p[i].at;
+				p[i].wt++;
 			}
-			// p[spidx].ft=ct-p[spidx].at;
-			p[spidx].bt=0;
-			if(p[spidx].bt == 0){
+			ct++;
+			p[spidx].ft=ct-p[spidx].at;
+			p[spidx].bt--;
+			if(p[spidx].bt <= 0){
 				p[spidx].ft = ct - p[spidx].at;
 				p[spidx].status=exec;
 			}
 
 		}
-	}while(ct!=sum);
+	}while(ct <= sum);
 }
 void show(process *p,int *a,int n){
 	printf("_______Sjf SCHEDULING_______\n");
-	printf("Pid\tBurst Time\tTurnArTime\tWait Time\n");
+	printf("Pid\tArr Time\tBurst Time\tTurnArTime\tWait Time\n");
 	for(int i=0;i < n;i++){
-		printf("%d\t\t%d\t\t%d\t%d\n",p[i].pid,a[i],p[i].ft,p[i].wt);
+		printf("%d\t%d\t\t%d\t\t%d\t\t%d\n",p[i].pid,p[i].at,a[i],p[i].ft,p[i].wt);
 	}
 }
 int main(){

@@ -56,15 +56,15 @@ void solve(process *p,int n){
 				p[spidx].status=exec;
 			}
 		}
-	}while(ct!=sum);
+	}while(ct <=sum);
 }
 void show(process *p,int *a,int n){
-	printf("_______FCFS SCHEDULING_______\n");
-	printf("Pid\tBurst Time\tTurnArTime\tWait Time\n");
+	printf("_______fcfs SCHEDULING_______\n");
+	printf("Pid\tArr Time\tBurst Time\tTurnArTime\tWait Time\n");
 	for(int i=0;i < n;i++){
-		printf("%d\t\t%d\t\t%d\t%d\n",p[i].pid,a[i],p[i].ft,p[i].wt);
+		printf("%d\t%d\t\t%d\t\t%d\t\t%d\n",p[i].pid,p[i].at,a[i],p[i].ft,p[i].wt);
 	}
-}
+} 
 int main(){
 	int n,*a;
 	scanf("%d",&n);

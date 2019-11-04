@@ -63,9 +63,9 @@ void solve(process *p,int n){
 }
 void show(process *p,int *a,int n){
 	printf("_______Srtf SCHEDULING_______\n");
-	printf("Pid\tBurst Time\tTurnArTime\tWait Time\n");
+	printf("Pid\tArr Time\tBurst Time\tTurnArTime\tWait Time\n");
 	for(int i=0;i < n;i++){
-		printf("%d\t\t%d\t\t%d\t%d\n",p[i].pid,a[i],p[i].ft,p[i].wt);
+		printf("%d\t%d\t\t%d\t\t%d\t\t%d\n",p[i].pid,p[i].at,a[i],p[i].ft,p[i].wt);
 	}
 }
 int main(){
